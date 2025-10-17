@@ -1,0 +1,8 @@
+build/
+devel/
+log/
+logs/
+install/
+SdkLog_Python/
+.vscode
+.catkin_workspace
