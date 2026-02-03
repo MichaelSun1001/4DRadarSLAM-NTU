@@ -4,7 +4,6 @@ catkin_make -j
 
 
 # 启动算法
-## CP
 source devel/setup.bash
 roslaunch radar_graph_slam radar_graph_slam.launch odom_output:=/home/sax/4DRadarSLAM-NTU/odom.txt
 
