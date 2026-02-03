@@ -6,3 +6,4 @@ install/
 SdkLog_Python/
 .vscode
 .catkin_workspace
+.github

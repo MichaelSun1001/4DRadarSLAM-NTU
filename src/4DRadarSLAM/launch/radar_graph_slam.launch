@@ -20,6 +20,7 @@
 
   <arg name="enable_transform_thresholding" default="true" />
   <arg name="enable_loop_closure" default="false" />
+  <arg name="odom_output" default="/home/sax/GO-RIO/odom.txt" />
   
   <!-- ICP NDT_OMP FAST_GICP FAST_APDGICP FAST_VGICP   -->
   <arg name="registration_method" default="FAST_APDGICP" />
@@ -106,6 +107,7 @@
 
   <!-- radar_graph_slam_nodelet -->
   <node pkg="nodelet" type="nodelet" name="radar_graph_slam_nodelet" args="load radar_graph_slam/RadarGraphSlamNodelet $(arg nodelet_manager)" output="screen">
+    <param name="odom_output" value="$(arg odom_output)" />
     <!-- optimization params -->
     <!-- typical solvers: gn_var, gn_fix6_3, gn_var_cholmod, lm_var, lm_fix6_3, lm_var_cholmod, ... -->
     <param name="g2o_solver_type" value="lm_var_cholmod" />

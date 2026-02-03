@@ -1189,8 +1189,20 @@ private:
   
   void command_callback(const std_msgs::String& str_msg) {
     if (str_msg.data == "output_aftmapped") {
+      std::lock_guard<std::mutex> lock(main_thread_mutex);
+      if (keyframes.empty()) {
+        ROS_WARN("No keyframes available, skip output.");
+        return;
+      }
+
+      const std::string odom_output = private_nh.param<std::string>("odom_output", "/tmp/odom.txt");
       ofstream fout;
-      fout.open("/home/zhuge/stamped_pose_graph_estimate.txt", ios::out);
+      fout.open(odom_output, ios::out);
+      if (!fout.is_open()) {
+        ROS_ERROR_STREAM("Failed to open odom output file: " << odom_output);
+        return;
+      }
+
       fout << "# timestamp tx ty tz qx qy qz qw" << endl;
       fout.setf(ios::fixed, ios::floatfield);  // fixed mode，float
       fout.precision(8);  // Set precision 8
@@ -1207,7 +1219,7 @@ private:
           << qx << " " << qy << " " << qz << " " << qw << endl;
       }
       fout.close();
-      ROS_INFO("Optimized edges have been output!");
+      ROS_INFO_STREAM("Optimized edges have been output to: " << odom_output);
     }
     else if (str_msg.data == "time") {
       if (loop_detector->pf_time.size() > 0) {

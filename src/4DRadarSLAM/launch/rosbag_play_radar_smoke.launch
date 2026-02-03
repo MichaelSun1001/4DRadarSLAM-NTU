@@ -5,10 +5,10 @@
 <!-- <param name="/use_sim_time" value="true"/> -->
 
 <!-- paths to the rosbag files -->
-<arg name="path" default="/home/zhuge/datasets/Radar/"/>
+<arg name="path" default="/home/sax/rosbags/NTU4DRadLM/smoke_cp/"/>
 
-  <arg name = "file_0" default = "carpark_smoke/smoke_2022-05-21_0.bag"/>
-  <arg name = "file_1" default = "carpark_smoke/smoke_2022-05-21_1.bag"/>
+  <arg name = "file_0" default = "smoke_2022-05-21_0.bag"/>
+  <arg name = "file_1" default = "smoke_2022-05-21_1.bag"/>
   <node pkg="rosbag" type="play" name="player" 
     args = "--clock --rate=3 --duration=10000
     $(arg path)$(arg file_0) $(arg path)$(arg file_1)
