@@ -2,24 +2,22 @@
 
 <launch>
 
-<!-- <param name="/use_sim_time" value="true"/> -->
+    <!-- <param name="/use_sim_time" value="true"/> -->
 
-<!-- paths to the rosbag files -->
-<arg name="path" default="/home/sax/rosbags/NTU4DRadLM/loop3/loop3/"/>
+    <!-- paths to the rosbag files -->
+    <arg name="path" default="/home/sax/rosbags/NTU4DRadLM/loop3/loop3/"/>
 
-<arg name = "file_0" default = "loop3_2022-06-03_0.bag"/>
-<arg name = "file_1" default = "loop3_2022-06-03_1.bag"/>
-<arg name = "file_2" default = "loop3_2022-06-03_2.bag"/>
+    <arg name = "file_0" default = "loop3_2022-06-03_0.bag"/>
+    <arg name = "file_1" default = "loop3_2022-06-03_1.bag"/>
+    <arg name = "file_2" default = "loop3_2022-06-03_2.bag"/>
 
-<!-- Plays the dataset. WARNING: changing 'rate' will cause interactions with the demo.  -->
-<!--  /radar_pcl /radar_trk pause     /ublox/fix-->
-<node pkg="rosbag" type="play" name="player" 
+    <!-- Plays the dataset. WARNING: changing 'rate' will cause interactions with the demo.  -->
+    <!--  /radar_pcl /radar_trk pause     /ublox/fix-->
+    <node pkg="rosbag" type="play" name="player" 
     args = "--clock --rate=2 --duration=10000
     $(arg path)$(arg file_0)
-    $(arg path)$(arg file_1)
-    $(arg path)$(arg file_2)
     --topic /radar_enhanced_pcl /rgb_cam/image_raw/compressed /barometer/filtered /vectornav/imu
     ">
-</node>
+    </node>
 
 </launch>

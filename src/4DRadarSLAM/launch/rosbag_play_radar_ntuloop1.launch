@@ -18,10 +18,6 @@
     <node pkg="rosbag" type="play" name="player" 
     args = "--clock --rate=3 --duration=10000
     $(arg path)$(arg file_0)
-    $(arg path)$(arg file_1)
-    $(arg path)$(arg file_2)
-    $(arg path)$(arg file_3)
-    $(arg path)$(arg file_4)
     --topic /radar_enhanced_pcl /rgb_cam/image_raw/compressed /barometer/filtered /vectornav/imu
     
     ">
