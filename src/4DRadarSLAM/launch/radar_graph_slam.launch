@@ -29,7 +29,8 @@
 
   <!-- ICP NDT_OMP FAST_GICP FAST_APDGICP FAST_VGICP   -->
   <arg name="registration_method" default="FAST_APDGICP" />
-  <arg name="reg_resolution" default="1.0" />
+  <!-- <arg name="registration_method" default="NDT_OMP" /> -->
+  <arg name="reg_resolution" default="1.3" />
 
   <arg name="dist_var" default="0.86" />
   <arg name="azimuth_var" default="0.5" />
@@ -99,7 +100,7 @@
     <!--  -->
     <param name="elevation_var" value="$(arg elevation_var)" />
     <!--  -->
-    <param name="reg_num_threads" value="0" />
+    <param name="reg_num_threads" value="5" />
     <param name="reg_transformation_epsilon" value="0.1"/>
     <param name="reg_maximum_iterations" value="64"/>
     <param name="reg_max_correspondence_distance" value="2.0"/>
@@ -164,7 +165,7 @@
     <param name="pairwise_check_rot_thresh" value="0.2" />
     <!-- scan matching params -->
     <param name="registration_method" value="$(arg registration_method)" />
-    <param name="reg_num_threads" value="0" />
+    <param name="reg_num_threads" value="5" />
     <param name="reg_transformation_epsilon" value="0.1"/>
     <param name="reg_maximum_iterations" value="64"/>
     <param name="reg_max_correspondence_distance" value="2.0"/>

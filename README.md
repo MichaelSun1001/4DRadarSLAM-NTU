@@ -16,11 +16,9 @@ source devel/setup.bash
 rostopic pub -1 /command std_msgs/String "data: 'output_aftmapped'"
 
 
-
-
 # 轨迹评估命令
 ## APE
-evo_ape tum gt_odom-cp.txt cp.txt -vap --plot_mode xyz --save_results ape_trans.zip
+evo_ape tum gt_odom-cp.txt cp.txt -vap --plot_mode xyz --save_plot ./ --save_results ape_trans.zip
 evo_ape tum gt_odom-cp.txt cp.txt -vap --plot_mode xyz -r angle_deg --save_results ape_rot.zip
 
 evo_ape tum gt_odom-garden.txt garden.txt -vap --plot_mode xyz --save_results ape_trans.zip
